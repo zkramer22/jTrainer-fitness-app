@@ -28,10 +28,10 @@ class Api::ProgramsController < ApplicationController
   end
 
   def destroy
-    @programs = Playlist.all.where(creator_id: current_user.id)
-    @program = Playlist.find(params[:id])
+    @programs = Program.all.where(creator_id: current_user.id)
+    @program = Program.find(params[:id])
     @program.destroy!
-    render "api/playlists/index"
+    render "api/programs/index"
   end
 
   def program_params

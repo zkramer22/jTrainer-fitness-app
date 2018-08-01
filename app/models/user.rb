@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :created_programs,
     class_name: :Program,
-    foreign_key: :program_id
+    foreign_key: :creator_id
 
   after_initialize :ensure_session_token
 
