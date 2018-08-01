@@ -14,10 +14,10 @@ class ProgramIndex extends React.Component {
 
     return (
       <section id="program-index-container">
-        <div id="program-index">
+        <ul id="program-index">
           { programs.map(program => <ProgramIndexItem
             key={ program.id } program={ program } /> ) }
-        </div>
+        </ul>
       </section>
     );
   }

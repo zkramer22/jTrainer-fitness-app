@@ -17,23 +17,34 @@
   padding: 0 10px;
   background-color: white;
   border-bottom: 1px solid lightgrey;
-  height: 50px;
+  height: 70px;
   transition: all .1s linear;
 }
 
 .program-index-item:hover {
-  background-color: lightgreen;
+  background-color: lightblue;
 }
 
-.program-name {
+.program-name-and-update {
+  width: 60%;
+}
+
+.program-weeks-and-days {
   width: 40%;
 }
 
+.program-name {
+  font-weight: 600;
+}
+
+.program-last-updated {
+  color: grey;
+}
+
 .program-weeks, .program-days-per-week {
-  width: 30%;
-  text-align: center;
+  text-align: right;
 }
 
 .program-comments {
-  text-overflow: ellipsis;
+  // text-overflow: ellipsis;
 }
