@@ -6,11 +6,12 @@ import { connect } from 'react-redux';
 const Greeting = ({ currentUser, guestLogin, logout }) => {
 
   return (
-    <div>
+    <div id="greeting-container">
       <p>
         A tool for trainers. Build and edit workout programs, invite your athletes, monitor their goals and progress.
       </p>
-
+      <br/>
+      <br/>
       <Link id="signup" className="greeting-button" to="/signup">Sign Up</Link>
       <div id="account-question">-- ALREADY HAVE AN ACCOUNT? --</div>
       <Link id="login" className="greeting-button" to="/login">Log In</Link>

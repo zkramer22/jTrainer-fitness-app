@@ -5,45 +5,62 @@ import { requestSingleProgram, deleteProgram } from '../../actions/program_actio
 import { selectProgramExercises } from '../../reducers/selectors';
 import { DayIndex } from '../days/day_index';
 
-// TODO: // make Day, Week components to render here, based on the programs weeks / days_per_week values
-
 class ProgramDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      scrollPos: 0
+    };
+    this.getWeeks = this.getWeeks.bind(this);
   }
 
   componentDidMount() {
     this.props.requestSingleProgram(this.props.match.params.programId);
   }
 
+  componentDidUpdate() {
+    this.dayHeaders();
+  }
+
+  dayHeaders() {
+    if (this.state.days) {
+      for (let i = 0, length = this.state.offsets.length; i < length; i++) {
+        $(this.state.days[i]).sticky({ topSpacing: 157 });
+      }
+      return;
+    }
+    const $days = $('.day-header');
+    this.setState({ days: $days });
+    let offsets = [];
+    for (let i = 0; i < $days.length; i++) {
+      offsets.push($($days[i]).offset().top - (157 + (30 * (i))));
+    }
+    this.setState({ offsets: offsets })
+  }
+
+  getWeeks() {
+    let weekArr = [];
+    for (let i = 1, numWeeks = this.props.program.weeks; i <= numWeeks; i++) {
+      weekArr.push(<li key={ i } className="week-list-item">{ i }</li>);
+    }
+    return weekArr;
+  }
+
   render() {
     const { program, exercises, days, exerciseIndexType } = this.props;
 
-    let weeks = ( <ul id="weeks-list"></ul> );
-    for (let i = 1, numWeeks = program.weeks, $list = $('#weeks-list'); i <= numWeeks; i++) {
-      $list.append(`<li class="week-list-item">${i}</li>`);
-    }
-
     return (
       <section id="program-detail-container">
-        { /*
-          • top bar that displays program.weeks number of Weeks.
-          swipe over or tap to different Weeks.
-
-          • Weeks will contain program.days_per_week number of Day components.
-          Day components will carry an 'exercises' prop through to send to
-          an ExerciseIndex, which will contain ExerciseIndexItems...
-
-        */ }
-
         <nav id="weeks-nav">
           <span>WEEKS</span>
-          { weeks }
+          <ul id="weeks-list">
+            { this.getWeeks() }
+          </ul>
         </nav>
 
         <DayIndex numDays={ program.days_per_week } days={ days }
           exercises={ exercises } type={ exerciseIndexType } />
-
+        <div className="tall-test-div"></div>
       </section>
     );
   }

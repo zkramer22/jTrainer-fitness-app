@@ -26,6 +26,9 @@ const App = props => {
         exact path="/signup"
         component={ SignUpFormContainer } />
       <Route
+        exact path="/dashboard"
+        component={ Dashboard } />
+      <Route
         exact path="/programs"
         component={ ProgramIndex } />
       <Route

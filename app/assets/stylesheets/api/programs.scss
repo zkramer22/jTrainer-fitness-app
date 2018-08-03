@@ -91,18 +91,46 @@
 }
 
 .day-index {
-  position: absolute;
-  top: 160px;
+  position: relative;
+  top: 157px;
   width: 100%;
   animation: fadein .4s linear;
 }
 
 .day-index-item {
+  position: relative;
   min-height: 120px;
   width: 100%;
 }
 
 .day-header {
-  padding-left: 10px;
+  display: flex;
+  z-index: 3 !important;
+  height: 30px;
+  width: 100%;
   line-height: 30px;
+  background-color: #e7e7e7;
+}
+
+div#sticky-wrapper {
+  padding: 0 10px;
+  background-color: #e7e7e7;
+}
+
+.day-header div {
+  font-size: 10px;
+}
+
+#column-header {
+  position: sticky;
+  top: 171px;
+  z-index: 4;
+  display: flex;
+  font-size: 10px;
+  padding: 0 10px;
+  line-height: 0;
+}
+
+.tall-test-div {
+  height: 700px;
 }

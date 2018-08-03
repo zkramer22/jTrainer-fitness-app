@@ -31,38 +31,15 @@ class ExerciseIndexItem extends React.Component {
 
     return (
       <div className="exercise-index-item">
-        <div className="exercise-name">
-          { exercise.name }
-        </div>
-        <div className="exercise-small-column">
-          { set }
-        </div>
-        <div className="exercise-small-column">
-          { rep }
-        </div>
-        <div className="rest">
-          { exercise.rest }
-        </div>
+        <div className="exercise-name">{ exercise.name }</div>
+        <div className="exercise-small-column">{ set }</div>
+        <div className="exercise-small-column">{ rep }</div>
+        <div className="rest">{ exercise.rest }</div>
         { tempo }
-        <div className="rpe">
-          { exercise.rpe }
-        </div>
-
+        <div className="rpe">{ exercise.rpe }</div>
       </div>
     )
   }
 }
 
-const msp = state => {
-  return {
-
-  };
-};
-
-const mdp = (dispatch, ownProps) => {
-  return {
-
-  };
-};
-
-export default connect(msp, mdp)(ExerciseIndexItem);
+export default ExerciseIndexItem;
