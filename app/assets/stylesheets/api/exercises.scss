@@ -1,0 +1,47 @@
+// Place all the styles related to the Exercises controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.exercise-index {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.exercise-index-item {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background-color: white;
+  height: 70px;
+  font-size: 14px;
+  transition: all .1s linear;
+  border-bottom: 1px solid lightgrey;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.exercise-name {
+  width: 36%;
+}
+
+.tempo, .rest, .rpe, .exercise-small-column {
+  text-align: center;
+}
+
+.tempo {
+  width: 18%;
+}
+
+.rest {
+  width: 13%;
+}
+
+.rpe {
+  width: 13%
+}
+
+.exercise-small-column {
+  width: 9%;
+}

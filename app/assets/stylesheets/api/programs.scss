@@ -4,6 +4,9 @@
 
 #program-index-container {
   margin: 10px 0;
+  position: absolute;
+  top: 70px;
+  width: 100%;
 }
 
 #program-index {
@@ -11,12 +14,18 @@
   flex-direction: column;
 }
 
+.program-index-item-container {
+  border-bottom: 1px solid lightgrey;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
 .program-index-item {
   display: flex;
   align-items: center;
   padding: 0 10px;
   background-color: white;
-  border-bottom: 1px solid lightgrey;
   height: 70px;
   transition: all .1s linear;
 }
@@ -47,4 +56,53 @@
 
 .program-comments {
   // text-overflow: ellipsis;
+}
+
+#weeks-nav {
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  top: 76px;
+  height: 80px;
+  text-align: center;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  background-color: #cbf2ff;
+}
+
+#weeks-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.week-list-item {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-right: 1px solid grey;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.day-index {
+  position: absolute;
+  top: 160px;
+  width: 100%;
+  animation: fadein .4s linear;
+}
+
+.day-index-item {
+  min-height: 120px;
+  width: 100%;
+}
+
+.day-header {
+  padding-left: 10px;
+  line-height: 30px;
 }

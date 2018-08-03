@@ -1,4 +1,8 @@
 class Api::ProgramsController < ApplicationController
+  def new
+
+  end
+
   def create
     @program = Program.new(program_params)
     if @program.save
@@ -15,6 +19,12 @@ class Api::ProgramsController < ApplicationController
 
   def show
     @program = Program.find(params[:id])
+    numDays = @program.days_per_week
+    @days = []
+    1.upto(numDays) do |i|
+      @days << @program.program_exercises.where(day: i)
+    end
+
     render "api/programs/show"
   end
 
@@ -33,6 +43,8 @@ class Api::ProgramsController < ApplicationController
     @program.destroy!
     render "api/programs/index"
   end
+
+  private
 
   def program_params
     params.require(:program).permit(:name, :creator_id)

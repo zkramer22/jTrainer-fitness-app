@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180730000323) do
+ActiveRecord::Schema.define(version: 20180802190021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "superset"
+    t.string "rest", null: false
+    t.integer "tempos", array: true
+    t.string "tempo_other"
+    t.integer "sets"
+    t.string "sets_other"
+    t.integer "reps"
+    t.string "reps_other"
+    t.float "rpe"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_exercises_on_name", unique: true
+  end
+
+  create_table "program_exercises", force: :cascade do |t|
+    t.integer "program_id", null: false
+    t.integer "exercise_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "order"
+    t.integer "day"
+  end
 
   create_table "programs", force: :cascade do |t|
     t.string "name", null: false

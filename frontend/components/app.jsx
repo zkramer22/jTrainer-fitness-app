@@ -7,6 +7,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import Dashboard from './dashboard';
 import ProgramIndex from './programs/program_index';
+import ProgramDetail from './programs/program_detail';
 
 const App = props => {
   return (
@@ -27,6 +28,9 @@ const App = props => {
       <Route
         exact path="/programs"
         component={ ProgramIndex } />
+      <Route
+        exact path="/programs/:programId"
+        component={ ProgramDetail } />
     </div>
   );
 };

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  superset: MyString
+  rest: MyString
+  tempo1: 1
+  tempo2: 1
+  tempo3: 1
+  tempo4: 1
+  tempos: 
+  tempo_other: MyString
+  sets: 1
+  sets2: 1
+  reps: 1
+  rpe: 1.5
+  notes: MyString
+
+two:
+  name: MyString
+  superset: MyString
+  rest: MyString
+  tempo1: 1
+  tempo2: 1
+  tempo3: 1
+  tempo4: 1
+  tempos: 
+  tempo_other: MyString
+  sets: 1
+  sets2: 1
+  reps: 1
+  rpe: 1.5
+  notes: MyString
