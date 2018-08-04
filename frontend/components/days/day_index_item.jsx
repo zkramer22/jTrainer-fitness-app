@@ -13,19 +13,14 @@ class DayIndexItem extends React.Component {
     return (
       <li className="day-index-item">
         <div className="day-header">
-          <span className="exercise-name">Day { day }</span>
-          <div className="exercise-small-column">sets</div>
-          <div className="exercise-small-column">reps</div>
-          <div className="rest">rest</div>
-          <div className="tempo">tempo</div>
-          <div className="rpe">RPE</div>
+          <span>Day { day }</span>
         </div>
         <ExerciseIndex exercises={ exercises } type={ type } />
       </li>
     );
   }
 }
-//
+
 // export const DayIndexItem = ({ day, days, exercises, type }) => {
 //   return (
 //     <li className="day-index-item">

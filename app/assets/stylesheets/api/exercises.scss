@@ -14,7 +14,7 @@
   padding: 0 10px;
   background-color: white;
   height: 70px;
-  font-size: 14px;
+  font-size: 13px;
   transition: all .1s linear;
   border-bottom: 1px solid lightgrey;
   &:last-child {
@@ -22,26 +22,42 @@
   }
 }
 
+.exercise-index-item div {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid lightgrey;
+}
+
 .exercise-name {
+  display: flex;
+  align-items: center;
   width: 36%;
+  height: 50px;
+  border-right: 1px solid lightgrey;
+  padding: 0 5px;
+}
+
+.column-spacer {
+  width: 36%;
+  padding: 0 5px;
 }
 
 .tempo, .rest, .rpe, .exercise-small-column {
   text-align: center;
+  font-size: 11px;
+  padding: 0 5px;
 }
 
 .tempo {
-  width: 18%;
+  width: 16%;
 }
 
-.rest {
-  width: 13%;
-}
-
-.rpe {
-  width: 13%
+.rest, .rpe {
+  width: 11%;
 }
 
 .exercise-small-column {
-  width: 9%;
+  width: 13%;
 }

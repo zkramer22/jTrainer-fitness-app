@@ -18,22 +18,22 @@ class ExerciseIndexItem extends React.Component {
     );
     const sets = exercise.sets;
     const set = sets ? (
-      <div className="set">{ sets }</div>
+      <div className="exercise-small-column">{ sets }</div>
     ) : (
-      <div>{ exercise.sets_other }</div>
+      <div className="exercise-small-column">{ exercise.sets_other }</div>
     );
     const reps = exercise.reps;
     const rep = reps ? (
-      <div className="rep">{ reps }</div>
+      <div className="exercise-small-column">{ reps }</div>
     ) : (
-      <div className="set">{ exercise.reps_other }</div>
+      <div className="exercise-small-column">{ exercise.reps_other }</div>
     );
 
     return (
       <div className="exercise-index-item">
-        <div className="exercise-name">{ exercise.name }</div>
-        <div className="exercise-small-column">{ set }</div>
-        <div className="exercise-small-column">{ rep }</div>
+        <span className="exercise-name">{ exercise.name }</span>
+        { set }
+        { rep }
         <div className="rest">{ exercise.rest }</div>
         { tempo }
         <div className="rpe">{ exercise.rpe }</div>

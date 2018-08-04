@@ -24,18 +24,13 @@ class ProgramDetail extends React.Component {
 
   dayHeaders() {
     if (this.state.days) {
-      for (let i = 0, length = this.state.offsets.length; i < length; i++) {
+      for (let i = 0, length = this.state.days.length; i < length; i++) {
         $(this.state.days[i]).sticky({ topSpacing: 157 });
       }
       return;
     }
     const $days = $('.day-header');
     this.setState({ days: $days });
-    let offsets = [];
-    for (let i = 0; i < $days.length; i++) {
-      offsets.push($($days[i]).offset().top - (157 + (30 * (i))));
-    }
-    this.setState({ offsets: offsets })
   }
 
   getWeeks() {
@@ -58,8 +53,18 @@ class ProgramDetail extends React.Component {
           </ul>
         </nav>
 
+        <div id="column-header">
+          <div className="column-spacer"></div>
+          <div className="exercise-small-column">sets</div>
+          <div className="exercise-small-column">reps</div>
+          <div className="rest">rest</div>
+          <div className="tempo">tempo</div>
+          <div className="rpe">RPE</div>
+        </div>
+
         <DayIndex numDays={ program.days_per_week } days={ days }
           exercises={ exercises } type={ exerciseIndexType } />
+
         <div className="tall-test-div"></div>
       </section>
     );

@@ -103,32 +103,38 @@
   width: 100%;
 }
 
+.day-index-item-day {
+  line-height: 30px;
+}
+
 .day-header {
   display: flex;
   z-index: 3 !important;
   height: 30px;
-  width: 100%;
+  width: -webkit-fill-available;
   line-height: 30px;
+  padding: 0 10px;
   background-color: #e7e7e7;
 }
 
-div#sticky-wrapper {
+#column-header {
+  position: fixed;
+  z-index: 4;
+  top: 157px;
+  display: flex;
+  height: 30px;
+  width: -webkit-fill-available;
   padding: 0 10px;
+  font-size: 10px;
+  line-height: 30px;
+}
+
+#sticky-wrapper {
   background-color: #e7e7e7;
 }
 
 .day-header div {
   font-size: 10px;
-}
-
-#column-header {
-  position: sticky;
-  top: 171px;
-  z-index: 4;
-  display: flex;
-  font-size: 10px;
-  padding: 0 10px;
-  line-height: 0;
 }
 
 .tall-test-div {
