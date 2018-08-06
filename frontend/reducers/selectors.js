@@ -1,20 +1,20 @@
 import values from 'lodash/values';
 
-const propSort = prop => {
+export const propSort = (property, order) => {
+  // debugger
   let sortOrder = 1;
-  if (prop[0] === '-') {
+  if (order === 'DESC') {
     sortOrder = -1;
-    prop = prop.substr(1);
   }
   return function (a,b) {
-    const result = (a[prop] < b[prop]) ? -1 : (a[prop] > b[prop]) ? 1 : 0;
+    const result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
     return result * sortOrder;
   }
 };
 
 export const selectAllPrograms = state => {
   let programs = values(state.entities.programs);
-  return programs.sort(propSort("name"));
+  return programs;
 };
 
 export const selectProgramExercises = (state, program) => {

@@ -18,7 +18,7 @@ class Api::ProgramsController < ApplicationController
   end
 
   def show
-    @program = Program.find(params[:id])
+    @program = current_user.created_programs.find(params[:id])
     numDays = @program.days_per_week
     @days = []
     1.upto(numDays) do |i|

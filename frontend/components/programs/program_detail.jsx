@@ -8,9 +8,7 @@ import { DayIndex } from '../days/day_index';
 class ProgramDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      scrollPos: 0
-    };
+    this.state = {};
     this.getWeeks = this.getWeeks.bind(this);
   }
 
