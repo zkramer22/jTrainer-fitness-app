@@ -56,7 +56,7 @@ ul {
  /////////////////////////*/
 
 .App {
-
+  overflow: hidden;
 }
 
 .App-logo {
@@ -95,9 +95,19 @@ ul {
   padding-left: 10px;
 }
 
+.index-header p {
+  font-size: 11px;
+}
+
+.index-name {
+  margin-right: 5%;
+}
+
 .sorters {
-  margin: 0 15px;
-  border: 1px solid blue;
+  margin: 0 0 0 15px;
+  padding: 0 10px;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
   cursor: pointer;
 }
 

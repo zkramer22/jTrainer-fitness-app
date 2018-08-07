@@ -42,12 +42,14 @@
 .column-spacer {
   width: 36%;
   padding: 0 5px;
+  border-right: 1px solid transparent;
 }
 
 .tempo, .rest, .rpe, .exercise-small-column {
   text-align: center;
   font-size: 11px;
   padding: 0 5px;
+  border-right: 1px solid transparent;
 }
 
 .tempo {

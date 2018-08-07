@@ -31,15 +31,15 @@ class ProgramIndex extends React.Component {
   }
 
   render() {
-    const programs = this.props.programs
+    const programs = this.props.programs;
 
     programs.sort(propSort(this.state.sortProp, this.state.sortOrder));
 
     return (
       <section id="program-index-container">
         <div className="index-header">
-          <p>PROGRAMS</p>
-          <span>sorters >></span>
+          <span className="index-name">PROGRAMS</span>
+          <p>sort by:</p>
           <p className="sorters" onClick={ () => this.sortPrograms("name") }>name</p>
           <p className="sorters" onClick={ () => this.sortPrograms("weeks") }>weeks</p>
           <p className="sorters" onClick={ () => this.sortPrograms("days_per_week") }>days</p>
@@ -54,7 +54,6 @@ class ProgramIndex extends React.Component {
 }
 
 const msp = state => {
-  // debugger
   return {
     programs: selectAllPrograms(state)
   };

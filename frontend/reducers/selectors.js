@@ -1,7 +1,6 @@
 import values from 'lodash/values';
 
 export const propSort = (property, order) => {
-  // debugger
   let sortOrder = 1;
   if (order === 'DESC') {
     sortOrder = -1;
