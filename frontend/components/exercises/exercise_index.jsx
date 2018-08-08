@@ -11,13 +11,11 @@ class ExerciseIndex extends React.Component {
   render() {
     const { exercises, type } = this.props;
     if (!exercises || !type) { return null }
-    
-    {/*
 
-      */}
 
     return (
       <ul className="exercise-index">
+        {/*
         <div className="column-header">
           <div className="column-spacer"></div>
           <div className="exercise-small-column">sets</div>
@@ -27,6 +25,7 @@ class ExerciseIndex extends React.Component {
           <div className="rpe">RPE</div>
           <div className="notes"></div>
         </div>
+        */}
         { exercises.map((exercise, i) => {
           return (
             <ExerciseIndexItem key={ i } exercise={ exercise } type={ type }/>

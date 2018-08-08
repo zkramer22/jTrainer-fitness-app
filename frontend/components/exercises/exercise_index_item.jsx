@@ -37,7 +37,9 @@ class ExerciseIndexItem extends React.Component {
         <div className="rest">{ exercise.rest }</div>
         { tempo }
         <div className="rpe">{ exercise.rpe }</div>
-        <div className="notes">{ exercise.notes }</div>
+        {/*
+          <div className="notes">{ exercise.notes }</div>
+        */}
       </div>
     )
   }
