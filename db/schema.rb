@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180802190021) do
+ActiveRecord::Schema.define(version: 20180807151404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,7 @@ ActiveRecord::Schema.define(version: 20180802190021) do
   create_table "programs", force: :cascade do |t|
     t.string "name", null: false
     t.integer "creator_id", null: false
-    t.integer "weeks"
-    t.integer "days"
+    t.integer "num_weeks"
     t.integer "days_per_week"
     t.string "comments"
     t.datetime "created_at", null: false
@@ -60,6 +59,12 @@ ActiveRecord::Schema.define(version: 20180802190021) do
     t.datetime "updated_at", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
+  end
+
+  create_table "weeks", force: :cascade do |t|
+    t.integer "program_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

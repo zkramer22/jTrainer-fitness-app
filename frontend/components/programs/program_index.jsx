@@ -41,7 +41,7 @@ class ProgramIndex extends React.Component {
           <span className="index-name">PROGRAMS</span>
           <p>sort by:</p>
           <p className="sorters" onClick={ () => this.sortPrograms("name") }>name</p>
-          <p className="sorters" onClick={ () => this.sortPrograms("weeks") }>weeks</p>
+          <p className="sorters" onClick={ () => this.sortPrograms("num_weeks") }>weeks</p>
           <p className="sorters" onClick={ () => this.sortPrograms("days_per_week") }>days</p>
         </div>
         <ul id="program-index">

@@ -20,13 +20,3 @@ export const DayIndex = ({ numDays, days, exercises, type }) => {
     </ul>
   );
 };
-
-
-// <div id="column-header"> // TODO: make sure this shows up on phone. Change hacky styling.
-//   <div className="exercise-name"></div>
-//   <div className="exercise-small-column">sets</div>
-//   <div className="exercise-small-column">reps</div>
-//   <div className="rest">rest</div>
-//   <div className="tempo">tempo</div>
-//   <div className="rpe">RPE</div>
-// </div>

@@ -12,7 +12,7 @@ const ProgramIndexItem = ({ program }) => {
           <div className="program-last-updated">Modified { updatedAt }</div>
         </div>
         <div className="program-weeks-and-days">
-          <div className="program-weeks">{ program.weeks } weeks</div>
+          <div className="program-weeks">{ program.num_weeks } weeks</div>
           <div className="program-days-per-week">{ program.days_per_week } days / week</div>
         </div>
         {/*

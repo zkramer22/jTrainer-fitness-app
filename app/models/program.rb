@@ -5,6 +5,8 @@ class Program < ApplicationRecord
     class_name: :User,
     foreign_key: :creator_id
 
+  has_many :weeks
+
   has_many :program_exercises,
     class_name: :ProgramExercise,
     foreign_key: :program_id
@@ -12,4 +14,5 @@ class Program < ApplicationRecord
   has_many :exercises,
     through: :program_exercises,
     source: :exercise
+
 end

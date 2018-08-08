@@ -33,7 +33,7 @@ class ProgramDetail extends React.Component {
 
   getWeeks() {
     let weekArr = [];
-    for (let i = 1, numWeeks = this.props.program.weeks; i <= numWeeks; i++) {
+    for (let i = 1, numWeeks = this.props.program.num_weeks; i <= numWeeks; i++) {
       weekArr.push(<li key={ i } className="week-list-item">{ i }</li>);
     }
     return weekArr;
@@ -50,15 +50,6 @@ class ProgramDetail extends React.Component {
             { this.getWeeks() }
           </ul>
         </nav>
-
-        <div id="column-header">
-          <div className="column-spacer"></div>
-          <div className="exercise-small-column">sets</div>
-          <div className="exercise-small-column">reps</div>
-          <div className="rest">rest</div>
-          <div className="tempo">tempo</div>
-          <div className="rpe">RPE</div>
-        </div>
 
         <DayIndex numDays={ program.days_per_week } days={ days }
           exercises={ exercises } type={ exerciseIndexType } />

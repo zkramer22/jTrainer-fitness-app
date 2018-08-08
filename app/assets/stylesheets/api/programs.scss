@@ -58,6 +58,10 @@
   // text-overflow: ellipsis;
 }
 
+#program-detail-container {
+  overflow: scroll;
+}
+
 #weeks-nav {
   width: 100%;
   position: fixed;
@@ -93,7 +97,7 @@
 .day-index {
   position: relative;
   top: 157px;
-  width: 100%;
+  width: 140%;
   animation: fadein .4s linear;
 }
 
@@ -117,13 +121,20 @@
   background-color: #e7e7e7;
 }
 
-#column-header {
-  position: fixed;
-  z-index: 4;
-  top: 157px;
+.day-title {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 3;
+  left: 10px;
+  background-color: #e7e7e7;
+}
+
+.column-header {
+  // position: sticky;
+  // z-index: 10;
+  // top: -30px;
   display: flex;
-  height: 30px;
-  width: -webkit-fill-available;
+  height: 0;
   padding: 0 10px;
   font-size: 10px;
   line-height: 30px;

@@ -1,5 +1,5 @@
 json.program do
-  json.extract! @program, :id,:name, :weeks, :days_per_week, :comments, :exercise_ids
+  json.extract! @program, :id,:name, :num_weeks, :days_per_week, :comments, :exercise_ids
   json.extract! @program.creator, :email_address
 end
 
