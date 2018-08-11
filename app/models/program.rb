@@ -7,12 +7,23 @@ class Program < ApplicationRecord
 
   has_many :weeks
 
-  has_many :program_exercises,
-    class_name: :ProgramExercise,
-    foreign_key: :program_id
+  has_many :days,
+    through: :weeks,
+    source: :days
+
+  has_many :day_exercises,
+    through: :days,
+    source: :day_exercises
 
   has_many :exercises,
-    through: :program_exercises,
-    source: :exercise
+    through: :days,
+    source: :exercises
 
+  def num_weeks
+    self.weeks.length
+  end
+
+  def num_days
+    self.days.length
+  end
 end

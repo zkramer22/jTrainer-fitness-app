@@ -59,7 +59,9 @@
 }
 
 #program-detail-container {
-  overflow: scroll;
+  // overflow: scroll;
+  position: relative;
+  top: 156px;
 }
 
 #weeks-nav {
@@ -69,10 +71,50 @@
   top: 76px;
   height: 80px;
   text-align: center;
-  border-bottom: 1px solid black;
   display: flex;
   flex-direction: column;
-  background-color: #cbf2ff;
+  justify-content: center;
+  background-color: #d9f5ff;
+}
+
+#week-day-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  font-size: 25px;
+
+  & span {
+    margin-right: 12px;
+    // color: white;
+    // text-shadow: 0px 1.2px 1.6px black;
+    // text-outline: 1px black;
+  }
+
+  & input {
+    width: 40%;
+    height: 80%;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 7px -2px black;
+  }
+}
+//
+// input[type=number]::-webkit-inner-spin-button,
+// input[type=number]::-webkit-outer-spin-button {
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     appearance: none;
+//     margin: 0;
+// }
+
+.number-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 0 20px;
+  border-bottom: 3px solid lightgrey;
 }
 
 #weeks-list {
@@ -96,19 +138,27 @@
 
 .day-index {
   position: relative;
-  top: 157px;
   width: 100%;
-  animation: fadein .4s linear;
 }
 
 .day-index-item {
   position: relative;
   min-height: 120px;
+  height: 100%;
   width: 100%;
+  animation: fadein .5s linear;
+  opacity: 1;
+  z-index: 3;
 }
 
 .day-index-item-day {
   line-height: 30px;
+}
+
+.flip-hidden {
+  display: none;
+  opacity: 0;
+  z-index: -10;
 }
 
 .day-header {
@@ -129,17 +179,6 @@
   background-color: #e7e7e7;
 }
 
-.column-header {
-  // position: sticky;
-  // z-index: 10;
-  // top: -30px;
-  display: flex;
-  height: 0;
-  padding: 0 10px;
-  font-size: 10px;
-  line-height: 30px;
-}
-
 #sticky-wrapper {
   background-color: #e7e7e7;
 }
@@ -149,5 +188,5 @@
 }
 
 .tall-test-div {
-  height: 700px;
+  height: 1000px;
 }

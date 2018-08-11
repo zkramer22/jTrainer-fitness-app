@@ -1,11 +1,18 @@
 class Api::ProgramsController < ApplicationController
-  def new
-
-  end
-
   def create
     @program = Program.new(program_params)
     if @program.save
+      @week = Week.new(program_id: @program.id, week_num: 1)
+      if @week.save
+        @day = Day.new(week_id: @week.id, day_num: 1)
+        if @day.save
+          render json: "blank day and week created successfully"
+        else
+          render json: @day.errors.full_messages, status: 422
+        end
+      else
+        render json: @week.errors.full_messages, status: 422
+      end
       render "api/programs/show"
     else
       render json: @program.errors.full_messages, status: 422
@@ -19,12 +26,6 @@ class Api::ProgramsController < ApplicationController
 
   def show
     @program = current_user.created_programs.find(params[:id])
-    numDays = @program.days_per_week
-    @days = []
-    1.upto(numDays) do |i|
-      @days << @program.program_exercises.where(day: i)
-    end
-
     render "api/programs/show"
   end
 

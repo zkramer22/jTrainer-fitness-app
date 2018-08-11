@@ -8,7 +8,6 @@ class ProgramIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = { sortProp: 'name', sortOrder: 'ASC' };
-
     this.sortPrograms = this.sortPrograms.bind(this);
   }
 
@@ -42,11 +41,11 @@ class ProgramIndex extends React.Component {
           <p>sort by:</p>
           <p className="sorters" onClick={ () => this.sortPrograms("name") }>name</p>
           <p className="sorters" onClick={ () => this.sortPrograms("num_weeks") }>weeks</p>
-          <p className="sorters" onClick={ () => this.sortPrograms("days_per_week") }>days</p>
+          <p className="sorters" onClick={ () => this.sortPrograms("num_days") }>days</p>
         </div>
         <ul id="program-index">
-          { programs.map(program => <ProgramIndexItem
-            key={ program.id } program={ program } /> ) }
+          { programs.map((program, i) => <ProgramIndexItem
+            key={ i } program={ program } /> ) }
         </ul>
       </section>
     );

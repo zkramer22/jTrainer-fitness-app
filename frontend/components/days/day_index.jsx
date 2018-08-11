@@ -2,21 +2,33 @@ import React from 'react';
 
 import DayIndexItem from './day_index_item';
 
-export const DayIndex = ({ numDays, days, exercises, type }) => {
-
-  let dayList = [];
-  let dayExercises;
-  for (let i = 1; i <= numDays; i++) {
-    if (!days[i]) { return null }
-    dayExercises = days[i].exercise_ids.map(id => exercises[id]);
-    dayList.push(<DayIndexItem day={ i } key={ i } days={ days }
-                  exercises={ dayExercises } type={ type }/>
-    );
+class DayIndex extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
-  return (
-    <ul className="day-index">
-      { dayList }
-    </ul>
-  );
-};
+  render() {
+    const { days, dayIds, dayExercises, activeDay } = this.props;
+    if (!days) { return null }
+
+    return (
+      <ul className="day-index">
+        { dayIds.map((dayId, i) => {
+          return (
+            <DayIndexItem key={ i } num={ i + 1 }
+              dayExercises={ dayExercises[i + 1] } activeDay={ activeDay } />
+          );
+        })
+        }
+        <div className="exercise-index-item" id="add-exercise-container">
+          <span className="exercise-name" id="add-exercise">
+            Add Exercise
+            <i className="material-icons">add</i>
+          </span>
+        </div>
+      </ul>
+    );
+  }
+}
+
+export default DayIndex;

@@ -1,16 +1,17 @@
 class Api::WeeksController < ApplicationController
-  def new
-  end
-
   def create
+    @week = Week.new(week_params)
+    if @week.save
+      # render "api/week/show"
+      render json: "week successfully created"
+    else
+      render json: @week.errors.full_messages, status: 422
+    end
   end
 
-  def edit
-  end
+  private
 
-  def update
-  end
-
-  def destroy
+  def week_params
+    params.require(:week).permit(:program_id)
   end
 end

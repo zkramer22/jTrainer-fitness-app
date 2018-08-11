@@ -1,7 +1,9 @@
 class Week < ApplicationRecord
-  # has_many :exercises,
-  #   class_name: :Exercise,
-  #   foreign_key: :week_id
-
   belongs_to :program
+
+  has_many :days
+
+  def num_days
+    self.days.length
+  end
 end

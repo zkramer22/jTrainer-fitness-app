@@ -6,10 +6,6 @@ class Dashboard extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-
-  }
-
   render() {
     return (
       <div id="dashboard-container">

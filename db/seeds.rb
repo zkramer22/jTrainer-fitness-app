@@ -6,34 +6,78 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
+# User.destroy_all
 # Program.destroy_all
+# Week.destroy_all
+# Day.destroy_all
 # Exercise.destroy_all
-# ProgramExercise.destroy_all
-
-
-# exercise_list = [
-#   ["Conventional Deadlifts", "2-3 min", nil, "Reset", 4, nil, 6, nil, 6.5, "Build Volume"],
-#   ["Paused/Contrast Pulls", "2-3 min", nil, "Reset", nil, "C 1:1", 4, 6.5, nil],
-#   ["Spoto Press", "2-3min", [2,2,1,0], nil, 3, nil, 4, nil, 6, nil],
-#   ["Incline Bench Row to Hip", "Next", [3,2,3,0], nil, 3, nil, nil, "12-15", 8, nil],
-#   ["Lean Away Lateral Raises", "90 sec", [1,0,1,0], nil, 3, nil, nil, "12-15", 8, nil],
-#   ["DB Shoulder Press", "Next", [2,0,1,0], nil, 3, nil, 10, nil, 8, nil],
-#   ["GHR negatives", "Next", [5,0,1,0], nil, 3, nil, nil, "AMRAP", 8, nil],
-#   ["Farmer's Walks", "60-90 sec", nil, "Control", 3, nil, nil, "20 yds", 10, nil],
+# DayExercise.destroy_all
 #
-#   ["High Bar Squats", "2-3 min", [2,0,1,0], nil, 4, nil, 7, nil, 6.5, nil],
-#   ["Hip Thrusts", "2-3 min", [2,1,1,0], nil, 3, nil, 8, nil, 7, nil],
-#   ["Wide Grip Paused Swiss Bar", "2-3 min", [2,1,1,0], nil, 5, nil, 5, nil, 8, nil],
-#   ["Low Incline DB Chest Flyes", "Next", [3,0,2,0], nil, 3, nil, 10, nil, 9, nil],
-#   ["TBar Row", "90 sec", [2,0,2,0], nil, 3, nil, 10, nil, 8, nil],
-#   ["Flat DB Press", "Next", [2,0,1,0], nil, nil, "x3 Drop", nil, "10-12", 9, nil],
-#   ["Preacher Curls", "90 sec", [2,0,2,0], nil, nil, "x3 Drop", nil, "10-12", 9, nil]
+# user_list = [
+#   ["abc@123.com", "qwerty"],
+#   ["xyz@789.com", "asdfgh"],
+#   ["dude@man.com", "zxcvbn"]
 # ]
 #
+# user_list.each do |email_address, password|
+#   User.create!(email_address: email_address, password: password)
+# end
+#
+# program_list = [
+#   ["10 Week Peaking Block", 14],
+#   ["Tyler Volume Block", 14]
+# ]
+#
+# program_list.each do |name, creator_id|
+#   Program.create!(name: name, creator_id: creator_id)
+# end
+#
+exercise_list = [
+  # ["Conventional Deadlifts", "2-3 min", nil, "Reset", 4, nil, 6, nil, 6.5, "Build Volume"],
+  # ["Paused/Contrast Pulls", "2-3 min", nil, "Reset", nil, "C 1:1", 4, 6.5, nil],
+  # ["Spoto Press", "2-3min", [2,2,1,0], nil, 3, nil, 4, nil, 6, nil],
+  # ["Incline Bench Row to Hip", "Next", [3,2,3,0], nil, 3, nil, nil, "12-15", 8, nil],
+  # ["Lean Away Lateral Raises", "90 sec", [1,0,1,0], nil, 3, nil, nil, "12-15", 8, nil],
+  # ["DB Shoulder Press", "Next", [2,0,1,0], nil, 3, nil, 10, nil, 8, nil],
+  # ["GHR negatives", "Next", [5,0,1,0], nil, 3, nil, nil, "AMRAP", 8, nil],
+  # ["Farmer's Walks", "60-90 sec", nil, "Control", 3, nil, nil, "20 yds", 10, nil],
+  #
+  ["High Bar Squats", "2-3 min", [2,0,1,0], nil, 4, nil, 7, nil, 6.5, nil],
+  ["Hip Thrusts", "2-3 min", [2,1,1,0], nil, 3, nil, 8, nil, 7, nil],
+  ["Wide Grip Paused Swiss Bar", "2-3 min", [2,1,1,0], nil, 5, nil, 5, nil, 8, nil],
+  ["Low Incline DB Chest Flyes", "Next", [3,0,2,0], nil, 3, nil, 10, nil, 9, nil],
+  ["TBar Row", "90 sec", [2,0,2,0], nil, 3, nil, 10, nil, 8, nil],
+  ["Flat DB Press", "Next", [2,0,1,0], nil, nil, "x3 Drop", nil, "10-12", 9, nil],
+  ["Preacher Curls", "90 sec", [2,0,2,0], nil, nil, "x3 Drop", nil, "10-12", 9, nil]
+]
+
+i = 0
+length = exercise_list.length
+while i < length
+  # DayExercise.find(i + 1).update!(
+  DayExercise.create!(
+    day_id: 2,
+    exercise_id: Exercise.find_by(name: exercise_list[i][0]).id,
+    order: i + 1,
+    name: exercise_list[i][0],
+    rest: exercise_list[i][1],
+    tempos: exercise_list[i][2],
+    tempo_other: exercise_list[i][3],
+    sets: exercise_list[i][4],
+    sets_other: exercise_list[i][5],
+    reps: exercise_list[i][6],
+    reps_other: exercise_list[i][7],
+    rpe: exercise_list[i][8],
+    notes: exercise_list[i][9]
+  )
+  i += 1
+end
+
 # exercise_list.each do |name, rest, tempos, tempo_other, sets, sets_other, reps, reps_other, rpe, notes|
 #   Exercise.create!(name: name, rest: rest, tempos: tempos, tempo_other: tempo_other, sets: sets, sets_other: sets_other, reps: reps, reps_other: reps_other, rpe: rpe, notes: notes)
 # end
-
+#
 # program_exercise_list = [
 #   [1, 1, 1, 1],
 #   [1, 2, 1, 2],

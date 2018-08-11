@@ -5,32 +5,30 @@ import ExerciseIndex from '../exercises/exercise_index';
 class DayIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
   }
 
-  componentDidUpdate() {
-    if (this.state.headers) {
-      for (let i = 0, length = this.state.headers.length; i < length; i++) {
-        $(this.state.headers[i]).sticky({ topSpacing: 157 });
-      }
-      return;
-    }
-    const $headers = $('.column-header');
-    this.setState({ headers: $headers})
+  componentWillUnmount() {
+    
   }
 
   render() {
-    const { day, days, exercises, type } = this.props;
+    const { dayExercises, num, activeDay } = this.props;
 
-    return (
-      <li className="day-index-item">
-        <div className="day-header">
-          <span className="day-title">Day { day }</span>
-        </div>
-        <ExerciseIndex exercises={ exercises } type={ type } />
-      </li>
-    );
+    if (num === activeDay) {
+      return (
+        <li className="day-index-item">
+          <ExerciseIndex exercises={ dayExercises } />
+        </li>
+      );
+    }
+    else {
+      return (
+        <li className="day-index-item flip-hidden">
+          <ExerciseIndex exercises={ dayExercises } />
+        </li>
+      );
+      return null;
+    }
   }
 }
 

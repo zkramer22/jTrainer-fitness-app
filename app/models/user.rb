@@ -46,6 +46,4 @@ class User < ApplicationRecord
     end
     self.session_token
   end
-
-
 end

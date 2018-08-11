@@ -16,12 +16,38 @@ export const selectAllPrograms = state => {
   return programs;
 };
 
-export const selectProgramExercises = (state, program) => {
+export const selectAllExercises = state => {
+  let exercises = values(state.entities.exercises);
+  return exercises;
+}
+
+export const selectWeeks = (state, program, weeks) => {
+  if (Object.values(weeks).length === 0) { return {} }
+  let ids = program.week_ids;
+  const programWeeks = new Object();
+  for (let i = 0, length = ids.length; i < length; i++) {
+    programWeeks[i] = state.entities.weeks[i + 1];
+  }
+  return programWeeks;
+}
+
+export const selectDays = (state, program, days) => {
+  if (Object.values(days).length === 0) { return {} }
+  let ids = program.day_ids;
+  const programDays = new Object();
+  for (let i = 0, length = ids.length; i < length; i++) {
+    // debugger
+    programDays[i] = state.entities.days[i + 1];
+  }
+  return programDays;
+}
+
+export const selectDayExercises = (state, program) => {
   if (!program.exercise_ids) { return {} }
-  const programExercises = new Object();
+  const dayExercises = new Object();
 
   for (let i = 1, length = program.exercise_ids.length; i <= length; i++) {
-    programExercises[i] = state.entities.exercises[i];
+    dayExercises[i] = state.entities.dayExercises[i];
   }
-  return programExercises;
+  return dayExercises;
 }

@@ -8,6 +8,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import Dashboard from './dashboard';
 import ProgramIndex from './programs/program_index';
 import ProgramDetail from './programs/program_detail';
+import ExerciseCatalog from './exercises/exercise_catalog';
 
 const App = props => {
   return (
@@ -34,6 +35,9 @@ const App = props => {
       <Route
         exact path="/programs/:programId"
         component={ ProgramDetail } />
+      <Route
+        exact path="/exercises"
+        component={ ExerciseCatalog } />
     </div>
   );
 };

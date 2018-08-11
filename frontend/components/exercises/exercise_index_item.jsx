@@ -7,8 +7,9 @@ class ExerciseIndexItem extends React.Component {
   }
 
   render() {
-    const { type, exercise } = this.props;
-    if (!exercise || !type) { return null }
+    const { exercise } = this.props;
+
+    if (!exercise) { return null }
 
     const tempos = exercise.tempos;
     const tempo = tempos ? (
@@ -37,8 +38,8 @@ class ExerciseIndexItem extends React.Component {
         <div className="rest">{ exercise.rest }</div>
         { tempo }
         <div className="rpe">{ exercise.rpe }</div>
+        <div className="notes">{ exercise.notes }</div>
         {/*
-          <div className="notes">{ exercise.notes }</div>
         */}
       </div>
     )

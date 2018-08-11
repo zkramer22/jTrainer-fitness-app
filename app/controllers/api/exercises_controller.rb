@@ -42,6 +42,6 @@ class Api::ExercisesController < ApplicationController
 
   private
     def exercise_params
-      params.require(:exercise).permit(:name, :superset, :rest, :tempo1, :tempo2, :tempo3, :tempo4, :tempos, :tempo_other, :sets, :sets2, :reps, :rpe, :notes)
+      params.require(:exercise).permit(:name, :superset, :rest, :tempos, :tempo_other, :sets, :sets2, :reps, :rpe, :notes)
     end
 end
